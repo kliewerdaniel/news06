@@ -1,0 +1,54 @@
+feeds:
+  urls:
+    - "http://feeds.bbci.co.uk/news/world/rss.xml"
+    - "https://www.theguardian.com/world/rss"
+    - "https://feeds.npr.org/1004/rss.xml"
+    - "https://www.aljazeera.com/xml/rss/all.xml"
+    - "https://www.thehindu.com/news/international/?service=rss"
+    - "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms"
+    - "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511"
+    - "https://news.un.org/feed/subscribe/en/news/all/rss.xml"
+    - "https://theintercept.com/feed/?rss"
+    - "https://globalvoices.org/feed/"
+    - "https://www.euronews.com/rss?level=theme&name=news"
+    - "https://www.smh.com.au/rss/world.xml"
+    - "https://www.abc.net.au/news/feed/51120/rss.xml"
+
+database:
+  path: "news_cache.db"
+
+output:
+  directory: "output"
+
+clustering:
+  num_clusters: 5
+  max_features: 1000
+
+tts:
+  voice: "en-US-GuyNeural"
+  exaggeration: 1.0
+  temperature: 1.0
+  seed: null
+  cfg_pace: 1.0
+  reference_audio: null
+
+models:
+  default_model:
+    provider: "ollama"
+    endpoint: "http://localhost:11434/v1/chat/completions"
+    model_name: "mistral:latest"
+    temperature: 0.7
+
+  broadcast_model:
+    provider: "ollama"
+    endpoint: "http://localhost:11434/v1/chat/completions"
+    model_name: "mistral-small:24b-instruct-2501-q8_0"
+    temperature: 0.5
+
+  # If using OpenAI:
+  # openai_model:
+  #   provider: "openai"
+  #   api_key: "YOUR_OPENAI_API_KEY"
+  #   model_name: "gpt-4"
+  #   temperature: 0.7
+  #   max_tokens: 150
