@@ -7,3 +7,5 @@ news_cache.db
 news_generator.log
 digest_*.mp3
 digest_*.md
+*.log
+news_*
