@@ -3,3 +3,5 @@ logs/
 venv/
 output/
 news.db
+news_cache.db
+news_generator.log
